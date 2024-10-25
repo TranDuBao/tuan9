@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .wapper {
+            width: 540px;
+            margin: auto;
+            border: 1px solid #333;
+            padding: 30px 0;
+            background-color: #eda;
+        }
+        
+        .form-a {
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wapper">
+        <form class="form-a" action="">
+            <input type="text" id="txttk" placeholder="Tai Khoan">
+            <br>
+            <input type="password" id="txtmk" placeholder="Mat Khau">
+            <br>
+            <input type="radio" name="gt" value="Nam">Nam
+            <input type="radio" name="gt" value="Nu">Nu
+            <br>
+            <input type="checkbox" value="Trung Nguyen">Trung Nguyen
+            <input type="checkbox" vlaue="Me Kong">Me Kong
+            <input type="checkbox" value="New Blue">New Blue
+            <input type="checkbox" vlaue="Tra Sua">Tra Sua
+            <br>
+            <input type="button" value="Nhap" onclick="nhap()">
+        </form>
+    </div>
+</body>
+<script>
+    function nhap() {
+        var tk, mk;
+        tendn = document.getElementById("txttk").value;
+        mk = document.getElementById("txtmk").value;
+        var cafe = new Array();
+        var taphop = document.querySelectorAll("input[type='checkbox']");
+        taphop.forEach(function(chk) {
+            if (chk.checked)
+                cafe.push(chk.value);
+        });
+
+        var gioitinh;
+        var taphogt = document.querySelectorAll("input[type='radio']");
+        taphogt.forEach(function(ra) {
+            if (ra.checked)
+                gioitinh = ra.value;
+        })
+        var w = window.open("infor.html");
+
+        localStorage.setItem("tk", tendn);
+        localStorage.setItem("mk", mk);
+        localStorage.setItem("cf", cafe);
+        localStorage.setItem("gt", gioitinh);
+    }
+</script>
+
+</html>
